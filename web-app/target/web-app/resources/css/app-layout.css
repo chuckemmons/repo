@@ -1,3 +1,1039 @@
-body {
-	background-color: blue;
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*body {
+  padding-top: 70px;
+  padding-bottom: 30px;
 }
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}*/
+/*  Ensure all HTML elements have the box-sizing property set to border-box. 
+    This makes sure that the padding and border are included in the total 
+    width and height of the elements. */
+* {
+  box-sizing: border-box; }
+
+/* Display these containers as "block". This is from bootstrap.css */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+/* for testing layout. puts a box around these elements. */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary,
+nav,
+nav ul,
+nav li {
+  border: thin;
+  border-color: yellow;
+  border-style: solid; }
+
+.row:after {
+  content: "";
+  clear: both;
+  display: block; }
+
+/* For mobile phones: */
+header {
+  width: 100%;
+  margin-bottom: 5px; }
+
+html {
+  font-family: "Lucida Sans", sans-serif; }
+
+body {
+  background: url("../images/20160128_102532.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: antiquewhite; }
+
+header {
+  background-color: #142739;
+  font-family: "Courier New", Courier, monospace;
+  color: #ffffff; }
+
+main {
+  font-family: "Courier New", Courier, monospace;
+  /* background-color: #8c8c8c; */ }
+
+footer {
+  /* The settings below are from bootstrap/html/examples/sticky-footer-navbar.css */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  text-align: right;
+  color: #ffffff; }
+
+footer p .copyright {
+  padding: 10px; }
+
+@media only screen and (max-width: 599px) {
+  /* for smartphones */
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+
+  nav li {
+    display: none;
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #33b5e5;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); } }
+/*[class*="col-"] {
+    width: 100%;
+} */
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  /*.col-m-1 {width: 8.33%;}
+  .col-m-2 {width: 16.66%;}
+  .col-m-3 {width: 25%;}
+  .col-m-4 {width: 33.33%;}
+  .col-m-5 {width: 41.66%;}
+  .col-m-6 {width: 50%;}
+  .col-m-7 {width: 58.33%;}
+  .col-m-8 {width: 66.66%;}
+  .col-m-9 {width: 75%;}
+  .col-m-10 {width: 83.33%;}
+  .col-m-11 {width: 91.66%;}
+  .col-m-12 {width: 100%;} */ }
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  /*.col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;} */ }
+div#menu {
+  width: 100%;
+  margin: 0 auto;
+  /* margin-top:100px; */ }
+
+div#menu h2 {
+  display: inline;
+  float: left;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: top; }
+
+div#menu nav {
+  position: relative;
+  float: right;
+  width: 620px;
+  margin: 0 auto;
+  color: white;
+  overflow: hidden; }
+
+.clearfix {
+  clear: both; }
+
+/*
+div#menu nav ul {  
+  margin:0px auto;
+  position:relative;
+  float:right;
+  border-left:1px solid #c4dbe7;
+  border-right:1px solid #c4dbe7;  
+  list-style: none; }
+
+div#menu nav ul li {  
+  display:inline;
+  font-size:12px;
+  font-weight:bold;
+  margin:0;
+  padding:0;
+  float:right;
+  position:relative;
+  border-top:1px solid #c4dbe7;
+  border-bottom:2px solid #c4dbe7; }
+
+ul#navigation ul, ul#navigation ul li ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;    
+    visibility:hidden;
+    position: absolute;
+    z-index: 99999;
+    width:180px;
+    background:#f8f8f8;
+    box-shadow:0 2px 2px -1px rgba(0, 0, 0, 0.055);
+    opacity:0;
+    -webkit-transition:opacity 0.2s linear, visibility 0.2s linear; Chrome &amp; Safari
+    -moz-transition:opacity 0.2s linear, visibility 0.2s linear;  Mozilla Firefox
+    -o-transition:opacity 0.2s linear, visibility 0.2s linear;  Opera
+    transition:opacity 0.2s linear, visibility 0.2s linear;     
+}
+
+div#menu nav ul li:hover {
+  color: #e1e3e2;}
+
+div#menu nav ul li a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: gray;
+  padding: 0px;
+  margin: 0px; }
+
+div#menu nav ul li a:hover {
+  color: #e1e3e2;
+} */
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 19, 2016, 11:56:09 AM
+    Author     : chuck
+*/
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url("../fonts/glyphicons-halflings-regular.eot");
+  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+.glyphicon, .glyphicon-asterisk:before, .glyphicon-plus:before, .glyphicon-euro:before,
+.glyphicon-eur:before, .glyphicon-minus:before, .glyphicon-cloud:before, .glyphicon-envelope:before, .glyphicon-pencil:before, .glyphicon-glass:before, .glyphicon-music:before, .glyphicon-search:before, .glyphicon-heart:before, .glyphicon-star:before, .glyphicon-star-empty:before, .glyphicon-user:before, .glyphicon-film:before, .glyphicon-th-large:before, .glyphicon-th:before, .glyphicon-th-list:before, .glyphicon-ok:before, .glyphicon-remove:before, .glyphicon-zoom-in:before, .glyphicon-zoom-out:before, .glyphicon-off:before, .glyphicon-signal:before, .glyphicon-cog:before, .glyphicon-trash:before, .glyphicon-home:before, .glyphicon-file:before, .glyphicon-time:before, .glyphicon-road:before, .glyphicon-download-alt:before, .glyphicon-download:before, .glyphicon-upload:before, .glyphicon-inbox:before, .glyphicon-play-circle:before, .glyphicon-repeat:before, .glyphicon-refresh:before, .glyphicon-list-alt:before, .glyphicon-lock:before, .glyphicon-flag:before, .glyphicon-headphones:before, .glyphicon-volume-off:before, .glyphicon-volume-down:before, .glyphicon-volume-up:before, .glyphicon-qrcode:before, .glyphicon-barcode:before, .glyphicon-tag:before, .glyphicon-tags:before, .glyphicon-book:before, .glyphicon-bookmark:before, .glyphicon-print:before, .glyphicon-camera:before, .glyphicon-font:before, .glyphicon-bold:before, .glyphicon-italic:before, .glyphicon-text-height:before, .glyphicon-text-width:before, .glyphicon-align-left:before, .glyphicon-align-center:before, .glyphicon-align-right:before, .glyphicon-align-justify:before, .glyphicon-list:before, .glyphicon-indent-left:before, .glyphicon-indent-right:before, .glyphicon-facetime-video:before, .glyphicon-picture:before, .glyphicon-map-marker:before, .glyphicon-adjust:before, .glyphicon-tint:before, .glyphicon-edit:before, .glyphicon-share:before, .glyphicon-check:before, .glyphicon-move:before, .glyphicon-step-backward:before, .glyphicon-fast-backward:before, .glyphicon-backward:before, .glyphicon-play:before, .glyphicon-pause:before, .glyphicon-stop:before, .glyphicon-forward:before, .glyphicon-fast-forward:before, .glyphicon-step-forward:before, .glyphicon-eject:before, .glyphicon-chevron-left:before, .glyphicon-chevron-right:before, .glyphicon-plus-sign:before, .glyphicon-minus-sign:before, .glyphicon-remove-sign:before, .glyphicon-ok-sign:before, .glyphicon-question-sign:before, .glyphicon-info-sign:before, .glyphicon-screenshot:before, .glyphicon-remove-circle:before, .glyphicon-ok-circle:before, .glyphicon-ban-circle:before, .glyphicon-arrow-left:before, .glyphicon-arrow-right:before, .glyphicon-arrow-up:before, .glyphicon-arrow-down:before, .glyphicon-share-alt:before, .glyphicon-resize-full:before, .glyphicon-resize-small:before, .glyphicon-exclamation-sign:before, .glyphicon-gift:before, .glyphicon-leaf:before, .glyphicon-fire:before, .glyphicon-eye-open:before, .glyphicon-eye-close:before, .glyphicon-warning-sign:before, .glyphicon-plane:before, .glyphicon-calendar:before, .glyphicon-random:before, .glyphicon-comment:before, .glyphicon-magnet:before, .glyphicon-chevron-up:before, .glyphicon-chevron-down:before, .glyphicon-retweet:before, .glyphicon-shopping-cart:before, .glyphicon-folder-close:before, .glyphicon-folder-open:before, .glyphicon-resize-vertical:before, .glyphicon-resize-horizontal:before, .glyphicon-hdd:before, .glyphicon-bullhorn:before, .glyphicon-bell:before, .glyphicon-certificate:before, .glyphicon-thumbs-up:before, .glyphicon-thumbs-down:before, .glyphicon-hand-right:before, .glyphicon-hand-left:before, .glyphicon-hand-up:before, .glyphicon-hand-down:before, .glyphicon-circle-arrow-right:before, .glyphicon-circle-arrow-left:before, .glyphicon-circle-arrow-up:before, .glyphicon-circle-arrow-down:before, .glyphicon-globe:before, .glyphicon-wrench:before, .glyphicon-tasks:before, .glyphicon-filter:before, .glyphicon-briefcase:before, .glyphicon-fullscreen:before, .glyphicon-dashboard:before, .glyphicon-paperclip:before, .glyphicon-heart-empty:before, .glyphicon-link:before, .glyphicon-phone:before, .glyphicon-pushpin:before, .glyphicon-usd:before, .glyphicon-gbp:before, .glyphicon-sort:before, .glyphicon-sort-by-alphabet:before, .glyphicon-sort-by-alphabet-alt:before, .glyphicon-sort-by-order:before, .glyphicon-sort-by-order-alt:before, .glyphicon-sort-by-attributes:before, .glyphicon-sort-by-attributes-alt:before, .glyphicon-unchecked:before, .glyphicon-expand:before, .glyphicon-collapse-down:before, .glyphicon-collapse-up:before, .glyphicon-log-in:before, .glyphicon-flash:before, .glyphicon-log-out:before, .glyphicon-new-window:before, .glyphicon-record:before, .glyphicon-save:before, .glyphicon-open:before, .glyphicon-saved:before, .glyphicon-import:before, .glyphicon-export:before, .glyphicon-send:before, .glyphicon-floppy-disk:before, .glyphicon-floppy-saved:before, .glyphicon-floppy-remove:before, .glyphicon-floppy-save:before, .glyphicon-floppy-open:before, .glyphicon-credit-card:before, .glyphicon-transfer:before, .glyphicon-cutlery:before, .glyphicon-header:before, .glyphicon-compressed:before, .glyphicon-earphone:before, .glyphicon-phone-alt:before, .glyphicon-tower:before, .glyphicon-stats:before, .glyphicon-sd-video:before, .glyphicon-hd-video:before, .glyphicon-subtitles:before, .glyphicon-sound-stereo:before, .glyphicon-sound-dolby:before, .glyphicon-sound-5-1:before, .glyphicon-sound-6-1:before, .glyphicon-sound-7-1:before, .glyphicon-copyright-mark:before, .glyphicon-registration-mark:before, .glyphicon-cloud-download:before, .glyphicon-cloud-upload:before, .glyphicon-tree-conifer:before, .glyphicon-tree-deciduous:before, .glyphicon-cd:before, .glyphicon-save-file:before, .glyphicon-open-file:before, .glyphicon-level-up:before, .glyphicon-copy:before, .glyphicon-paste:before, .glyphicon-alert:before, .glyphicon-equalizer:before, .glyphicon-king:before, .glyphicon-queen:before, .glyphicon-pawn:before, .glyphicon-bishop:before, .glyphicon-knight:before, .glyphicon-baby-formula:before, .glyphicon-tent:before, .glyphicon-blackboard:before, .glyphicon-bed:before, .glyphicon-apple:before, .glyphicon-erase:before, .glyphicon-hourglass:before, .glyphicon-lamp:before, .glyphicon-duplicate:before, .glyphicon-piggy-bank:before, .glyphicon-scissors:before, .glyphicon-bitcoin:before, .glyphicon-btc:before, .glyphicon-xbt:before, .glyphicon-yen:before, .glyphicon-jpy:before, .glyphicon-ruble:before, .glyphicon-rub:before, .glyphicon-scale:before, .glyphicon-ice-lolly:before, .glyphicon-ice-lolly-tasted:before, .glyphicon-education:before, .glyphicon-option-horizontal:before, .glyphicon-option-vertical:before, .glyphicon-menu-hamburger:before, .glyphicon-modal-window:before, .glyphicon-oil:before, .glyphicon-grain:before, .glyphicon-sunglasses:before, .glyphicon-text-size:before, .glyphicon-text-color:before, .glyphicon-text-background:before, .glyphicon-object-align-top:before, .glyphicon-object-align-bottom:before, .glyphicon-object-align-horizontal:before, .glyphicon-object-align-left:before, .glyphicon-object-align-vertical:before, .glyphicon-object-align-right:before, .glyphicon-triangle-right:before, .glyphicon-triangle-left:before, .glyphicon-triangle-bottom:before, .glyphicon-triangle-top:before, .glyphicon-console:before, .glyphicon-superscript:before, .glyphicon-subscript:before, .glyphicon-menu-left:before, .glyphicon-menu-right:before, .glyphicon-menu-down:before, .glyphicon-menu-up:before {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.glyphicon-asterisk:before {
+  content: "\002a"; }
+
+.glyphicon-plus:before {
+  content: "\002b"; }
+
+.glyphicon-euro:before,
+.glyphicon-eur:before {
+  content: "\20ac"; }
+
+.glyphicon-minus:before {
+  content: "\2212"; }
+
+.glyphicon-cloud:before {
+  content: "\2601"; }
+
+.glyphicon-envelope:before {
+  content: "\2709"; }
+
+.glyphicon-pencil:before {
+  content: "\270f"; }
+
+.glyphicon-glass:before {
+  content: "\e001"; }
+
+.glyphicon-music:before {
+  content: "\e002"; }
+
+.glyphicon-search:before {
+  content: "\e003"; }
+
+.glyphicon-heart:before {
+  content: "\e005"; }
+
+.glyphicon-star:before {
+  content: "\e006"; }
+
+.glyphicon-star-empty:before {
+  content: "\e007"; }
+
+.glyphicon-user:before {
+  content: "\e008"; }
+
+.glyphicon-film:before {
+  content: "\e009"; }
+
+.glyphicon-th-large:before {
+  content: "\e010"; }
+
+.glyphicon-th:before {
+  content: "\e011"; }
+
+.glyphicon-th-list:before {
+  content: "\e012"; }
+
+.glyphicon-ok:before {
+  content: "\e013"; }
+
+.glyphicon-remove:before {
+  content: "\e014"; }
+
+.glyphicon-zoom-in:before {
+  content: "\e015"; }
+
+.glyphicon-zoom-out:before {
+  content: "\e016"; }
+
+.glyphicon-off:before {
+  content: "\e017"; }
+
+.glyphicon-signal:before {
+  content: "\e018"; }
+
+.glyphicon-cog:before {
+  content: "\e019"; }
+
+.glyphicon-trash:before {
+  content: "\e020"; }
+
+.glyphicon-home:before {
+  content: "\e021"; }
+
+.glyphicon-file:before {
+  content: "\e022"; }
+
+.glyphicon-time:before {
+  content: "\e023"; }
+
+.glyphicon-road:before {
+  content: "\e024"; }
+
+.glyphicon-download-alt:before {
+  content: "\e025"; }
+
+.glyphicon-download:before {
+  content: "\e026"; }
+
+.glyphicon-upload:before {
+  content: "\e027"; }
+
+.glyphicon-inbox:before {
+  content: "\e028"; }
+
+.glyphicon-play-circle:before {
+  content: "\e029"; }
+
+.glyphicon-repeat:before {
+  content: "\e030"; }
+
+.glyphicon-refresh:before {
+  content: "\e031"; }
+
+.glyphicon-list-alt:before {
+  content: "\e032"; }
+
+.glyphicon-lock:before {
+  content: "\e033"; }
+
+.glyphicon-flag:before {
+  content: "\e034"; }
+
+.glyphicon-headphones:before {
+  content: "\e035"; }
+
+.glyphicon-volume-off:before {
+  content: "\e036"; }
+
+.glyphicon-volume-down:before {
+  content: "\e037"; }
+
+.glyphicon-volume-up:before {
+  content: "\e038"; }
+
+.glyphicon-qrcode:before {
+  content: "\e039"; }
+
+.glyphicon-barcode:before {
+  content: "\e040"; }
+
+.glyphicon-tag:before {
+  content: "\e041"; }
+
+.glyphicon-tags:before {
+  content: "\e042"; }
+
+.glyphicon-book:before {
+  content: "\e043"; }
+
+.glyphicon-bookmark:before {
+  content: "\e044"; }
+
+.glyphicon-print:before {
+  content: "\e045"; }
+
+.glyphicon-camera:before {
+  content: "\e046"; }
+
+.glyphicon-font:before {
+  content: "\e047"; }
+
+.glyphicon-bold:before {
+  content: "\e048"; }
+
+.glyphicon-italic:before {
+  content: "\e049"; }
+
+.glyphicon-text-height:before {
+  content: "\e050"; }
+
+.glyphicon-text-width:before {
+  content: "\e051"; }
+
+.glyphicon-align-left:before {
+  content: "\e052"; }
+
+.glyphicon-align-center:before {
+  content: "\e053"; }
+
+.glyphicon-align-right:before {
+  content: "\e054"; }
+
+.glyphicon-align-justify:before {
+  content: "\e055"; }
+
+.glyphicon-list:before {
+  content: "\e056"; }
+
+.glyphicon-indent-left:before {
+  content: "\e057"; }
+
+.glyphicon-indent-right:before {
+  content: "\e058"; }
+
+.glyphicon-facetime-video:before {
+  content: "\e059"; }
+
+.glyphicon-picture:before {
+  content: "\e060"; }
+
+.glyphicon-map-marker:before {
+  content: "\e062"; }
+
+.glyphicon-adjust:before {
+  content: "\e063"; }
+
+.glyphicon-tint:before {
+  content: "\e064"; }
+
+.glyphicon-edit:before {
+  content: "\e065"; }
+
+.glyphicon-share:before {
+  content: "\e066"; }
+
+.glyphicon-check:before {
+  content: "\e067"; }
+
+.glyphicon-move:before {
+  content: "\e068"; }
+
+.glyphicon-step-backward:before {
+  content: "\e069"; }
+
+.glyphicon-fast-backward:before {
+  content: "\e070"; }
+
+.glyphicon-backward:before {
+  content: "\e071"; }
+
+.glyphicon-play:before {
+  content: "\e072"; }
+
+.glyphicon-pause:before {
+  content: "\e073"; }
+
+.glyphicon-stop:before {
+  content: "\e074"; }
+
+.glyphicon-forward:before {
+  content: "\e075"; }
+
+.glyphicon-fast-forward:before {
+  content: "\e076"; }
+
+.glyphicon-step-forward:before {
+  content: "\e077"; }
+
+.glyphicon-eject:before {
+  content: "\e078"; }
+
+.glyphicon-chevron-left:before {
+  content: "\e079"; }
+
+.glyphicon-chevron-right:before {
+  content: "\e080"; }
+
+.glyphicon-plus-sign:before {
+  content: "\e081"; }
+
+.glyphicon-minus-sign:before {
+  content: "\e082"; }
+
+.glyphicon-remove-sign:before {
+  content: "\e083"; }
+
+.glyphicon-ok-sign:before {
+  content: "\e084"; }
+
+.glyphicon-question-sign:before {
+  content: "\e085"; }
+
+.glyphicon-info-sign:before {
+  content: "\e086"; }
+
+.glyphicon-screenshot:before {
+  content: "\e087"; }
+
+.glyphicon-remove-circle:before {
+  content: "\e088"; }
+
+.glyphicon-ok-circle:before {
+  content: "\e089"; }
+
+.glyphicon-ban-circle:before {
+  content: "\e090"; }
+
+.glyphicon-arrow-left:before {
+  content: "\e091"; }
+
+.glyphicon-arrow-right:before {
+  content: "\e092"; }
+
+.glyphicon-arrow-up:before {
+  content: "\e093"; }
+
+.glyphicon-arrow-down:before {
+  content: "\e094"; }
+
+.glyphicon-share-alt:before {
+  content: "\e095"; }
+
+.glyphicon-resize-full:before {
+  content: "\e096"; }
+
+.glyphicon-resize-small:before {
+  content: "\e097"; }
+
+.glyphicon-exclamation-sign:before {
+  content: "\e101"; }
+
+.glyphicon-gift:before {
+  content: "\e102"; }
+
+.glyphicon-leaf:before {
+  content: "\e103"; }
+
+.glyphicon-fire:before {
+  content: "\e104"; }
+
+.glyphicon-eye-open:before {
+  content: "\e105"; }
+
+.glyphicon-eye-close:before {
+  content: "\e106"; }
+
+.glyphicon-warning-sign:before {
+  content: "\e107"; }
+
+.glyphicon-plane:before {
+  content: "\e108"; }
+
+.glyphicon-calendar:before {
+  content: "\e109"; }
+
+.glyphicon-random:before {
+  content: "\e110"; }
+
+.glyphicon-comment:before {
+  content: "\e111"; }
+
+.glyphicon-magnet:before {
+  content: "\e112"; }
+
+.glyphicon-chevron-up:before {
+  content: "\e113"; }
+
+.glyphicon-chevron-down:before {
+  content: "\e114"; }
+
+.glyphicon-retweet:before {
+  content: "\e115"; }
+
+.glyphicon-shopping-cart:before {
+  content: "\e116"; }
+
+.glyphicon-folder-close:before {
+  content: "\e117"; }
+
+.glyphicon-folder-open:before {
+  content: "\e118"; }
+
+.glyphicon-resize-vertical:before {
+  content: "\e119"; }
+
+.glyphicon-resize-horizontal:before {
+  content: "\e120"; }
+
+.glyphicon-hdd:before {
+  content: "\e121"; }
+
+.glyphicon-bullhorn:before {
+  content: "\e122"; }
+
+.glyphicon-bell:before {
+  content: "\e123"; }
+
+.glyphicon-certificate:before {
+  content: "\e124"; }
+
+.glyphicon-thumbs-up:before {
+  content: "\e125"; }
+
+.glyphicon-thumbs-down:before {
+  content: "\e126"; }
+
+.glyphicon-hand-right:before {
+  content: "\e127"; }
+
+.glyphicon-hand-left:before {
+  content: "\e128"; }
+
+.glyphicon-hand-up:before {
+  content: "\e129"; }
+
+.glyphicon-hand-down:before {
+  content: "\e130"; }
+
+.glyphicon-circle-arrow-right:before {
+  content: "\e131"; }
+
+.glyphicon-circle-arrow-left:before {
+  content: "\e132"; }
+
+.glyphicon-circle-arrow-up:before {
+  content: "\e133"; }
+
+.glyphicon-circle-arrow-down:before {
+  content: "\e134"; }
+
+.glyphicon-globe:before {
+  content: "\e135"; }
+
+.glyphicon-wrench:before {
+  content: "\e136"; }
+
+.glyphicon-tasks:before {
+  content: "\e137"; }
+
+.glyphicon-filter:before {
+  content: "\e138"; }
+
+.glyphicon-briefcase:before {
+  content: "\e139"; }
+
+.glyphicon-fullscreen:before {
+  content: "\e140"; }
+
+.glyphicon-dashboard:before {
+  content: "\e141"; }
+
+.glyphicon-paperclip:before {
+  content: "\e142"; }
+
+.glyphicon-heart-empty:before {
+  content: "\e143"; }
+
+.glyphicon-link:before {
+  content: "\e144"; }
+
+.glyphicon-phone:before {
+  content: "\e145"; }
+
+.glyphicon-pushpin:before {
+  content: "\e146"; }
+
+.glyphicon-usd:before {
+  content: "\e148"; }
+
+.glyphicon-gbp:before {
+  content: "\e149"; }
+
+.glyphicon-sort:before {
+  content: "\e150"; }
+
+.glyphicon-sort-by-alphabet:before {
+  content: "\e151"; }
+
+.glyphicon-sort-by-alphabet-alt:before {
+  content: "\e152"; }
+
+.glyphicon-sort-by-order:before {
+  content: "\e153"; }
+
+.glyphicon-sort-by-order-alt:before {
+  content: "\e154"; }
+
+.glyphicon-sort-by-attributes:before {
+  content: "\e155"; }
+
+.glyphicon-sort-by-attributes-alt:before {
+  content: "\e156"; }
+
+.glyphicon-unchecked:before {
+  content: "\e157"; }
+
+.glyphicon-expand:before {
+  content: "\e158"; }
+
+.glyphicon-collapse-down:before {
+  content: "\e159"; }
+
+.glyphicon-collapse-up:before {
+  content: "\e160"; }
+
+.glyphicon-log-in:before {
+  content: "\e161"; }
+
+.glyphicon-flash:before {
+  content: "\e162"; }
+
+.glyphicon-log-out:before {
+  content: "\e163"; }
+
+.glyphicon-new-window:before {
+  content: "\e164"; }
+
+.glyphicon-record:before {
+  content: "\e165"; }
+
+.glyphicon-save:before {
+  content: "\e166"; }
+
+.glyphicon-open:before {
+  content: "\e167"; }
+
+.glyphicon-saved:before {
+  content: "\e168"; }
+
+.glyphicon-import:before {
+  content: "\e169"; }
+
+.glyphicon-export:before {
+  content: "\e170"; }
+
+.glyphicon-send:before {
+  content: "\e171"; }
+
+.glyphicon-floppy-disk:before {
+  content: "\e172"; }
+
+.glyphicon-floppy-saved:before {
+  content: "\e173"; }
+
+.glyphicon-floppy-remove:before {
+  content: "\e174"; }
+
+.glyphicon-floppy-save:before {
+  content: "\e175"; }
+
+.glyphicon-floppy-open:before {
+  content: "\e176"; }
+
+.glyphicon-credit-card:before {
+  content: "\e177"; }
+
+.glyphicon-transfer:before {
+  content: "\e178"; }
+
+.glyphicon-cutlery:before {
+  content: "\e179"; }
+
+.glyphicon-header:before {
+  content: "\e180"; }
+
+.glyphicon-compressed:before {
+  content: "\e181"; }
+
+.glyphicon-earphone:before {
+  content: "\e182"; }
+
+.glyphicon-phone-alt:before {
+  content: "\e183"; }
+
+.glyphicon-tower:before {
+  content: "\e184"; }
+
+.glyphicon-stats:before {
+  content: "\e185"; }
+
+.glyphicon-sd-video:before {
+  content: "\e186"; }
+
+.glyphicon-hd-video:before {
+  content: "\e187"; }
+
+.glyphicon-subtitles:before {
+  content: "\e188"; }
+
+.glyphicon-sound-stereo:before {
+  content: "\e189"; }
+
+.glyphicon-sound-dolby:before {
+  content: "\e190"; }
+
+.glyphicon-sound-5-1:before {
+  content: "\e191"; }
+
+.glyphicon-sound-6-1:before {
+  content: "\e192"; }
+
+.glyphicon-sound-7-1:before {
+  content: "\e193"; }
+
+.glyphicon-copyright-mark:before {
+  content: "\e194"; }
+
+.glyphicon-registration-mark:before {
+  content: "\e195"; }
+
+.glyphicon-cloud-download:before {
+  content: "\e197"; }
+
+.glyphicon-cloud-upload:before {
+  content: "\e198"; }
+
+.glyphicon-tree-conifer:before {
+  content: "\e199"; }
+
+.glyphicon-tree-deciduous:before {
+  content: "\e200"; }
+
+.glyphicon-cd:before {
+  content: "\e201"; }
+
+.glyphicon-save-file:before {
+  content: "\e202"; }
+
+.glyphicon-open-file:before {
+  content: "\e203"; }
+
+.glyphicon-level-up:before {
+  content: "\e204"; }
+
+.glyphicon-copy:before {
+  content: "\e205"; }
+
+.glyphicon-paste:before {
+  content: "\e206"; }
+
+.glyphicon-alert:before {
+  content: "\e209"; }
+
+.glyphicon-equalizer:before {
+  content: "\e210"; }
+
+.glyphicon-king:before {
+  content: "\e211"; }
+
+.glyphicon-queen:before {
+  content: "\e212"; }
+
+.glyphicon-pawn:before {
+  content: "\e213"; }
+
+.glyphicon-bishop:before {
+  content: "\e214"; }
+
+.glyphicon-knight:before {
+  content: "\e215"; }
+
+.glyphicon-baby-formula:before {
+  content: "\e216"; }
+
+.glyphicon-tent:before {
+  content: "\26fa"; }
+
+.glyphicon-blackboard:before {
+  content: "\e218"; }
+
+.glyphicon-bed:before {
+  content: "\e219"; }
+
+.glyphicon-apple:before {
+  content: "\f8ff"; }
+
+.glyphicon-erase:before {
+  content: "\e221"; }
+
+.glyphicon-hourglass:before {
+  content: "\231b"; }
+
+.glyphicon-lamp:before {
+  content: "\e223"; }
+
+.glyphicon-duplicate:before {
+  content: "\e224"; }
+
+.glyphicon-piggy-bank:before {
+  content: "\e225"; }
+
+.glyphicon-scissors:before {
+  content: "\e226"; }
+
+.glyphicon-bitcoin:before {
+  content: "\e227"; }
+
+.glyphicon-btc:before {
+  content: "\e227"; }
+
+.glyphicon-xbt:before {
+  content: "\e227"; }
+
+.glyphicon-yen:before {
+  content: "\00a5"; }
+
+.glyphicon-jpy:before {
+  content: "\00a5"; }
+
+.glyphicon-ruble:before {
+  content: "\20bd"; }
+
+.glyphicon-rub:before {
+  content: "\20bd"; }
+
+.glyphicon-scale:before {
+  content: "\e230"; }
+
+.glyphicon-ice-lolly:before {
+  content: "\e231"; }
+
+.glyphicon-ice-lolly-tasted:before {
+  content: "\e232"; }
+
+.glyphicon-education:before {
+  content: "\e233"; }
+
+.glyphicon-option-horizontal:before {
+  content: "\e234"; }
+
+.glyphicon-option-vertical:before {
+  content: "\e235"; }
+
+.glyphicon-menu-hamburger:before {
+  content: "\e236"; }
+
+.glyphicon-modal-window:before {
+  content: "\e237"; }
+
+.glyphicon-oil:before {
+  content: "\e238"; }
+
+.glyphicon-grain:before {
+  content: "\e239"; }
+
+.glyphicon-sunglasses:before {
+  content: "\e240"; }
+
+.glyphicon-text-size:before {
+  content: "\e241"; }
+
+.glyphicon-text-color:before {
+  content: "\e242"; }
+
+.glyphicon-text-background:before {
+  content: "\e243"; }
+
+.glyphicon-object-align-top:before {
+  content: "\e244"; }
+
+.glyphicon-object-align-bottom:before {
+  content: "\e245"; }
+
+.glyphicon-object-align-horizontal:before {
+  content: "\e246"; }
+
+.glyphicon-object-align-left:before {
+  content: "\e247"; }
+
+.glyphicon-object-align-vertical:before {
+  content: "\e248"; }
+
+.glyphicon-object-align-right:before {
+  content: "\e249"; }
+
+.glyphicon-triangle-right:before {
+  content: "\e250"; }
+
+.glyphicon-triangle-left:before {
+  content: "\e251"; }
+
+.glyphicon-triangle-bottom:before {
+  content: "\e252"; }
+
+.glyphicon-triangle-top:before {
+  content: "\e253"; }
+
+.glyphicon-console:before {
+  content: "\e254"; }
+
+.glyphicon-superscript:before {
+  content: "\e255"; }
+
+.glyphicon-subscript:before {
+  content: "\e256"; }
+
+.glyphicon-menu-left:before {
+  content: "\e257"; }
+
+.glyphicon-menu-right:before {
+  content: "\e258"; }
+
+.glyphicon-menu-down:before {
+  content: "\e259"; }
+
+.glyphicon-menu-up:before {
+  content: "\e260"; }
+
+/*# sourceMappingURL=style.css.map */

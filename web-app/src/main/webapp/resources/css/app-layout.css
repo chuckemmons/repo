@@ -117,7 +117,7 @@ footer p .copyright {
     padding: 8px;
     margin-bottom: 7px;
     background-color: #33b5e5;
-    color: #ffffff;
+    color: #000040;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); } }
 /*[class*="col-"] {
     width: 100%;
@@ -167,7 +167,7 @@ div#menu nav {
   float: right;
   width: 620px;
   margin: 0 auto;
-  color: white;
+  color: black;
   overflow: hidden; }
 
 .clearfix {

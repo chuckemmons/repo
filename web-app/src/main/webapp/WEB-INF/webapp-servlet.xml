@@ -12,7 +12,7 @@
     
     <mvc:resources mapping="/resources/**" location="/resources/" /> 
      
-    <bean
+    <!-- <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
             <value>/WEB-INF/views/</value>
@@ -20,6 +20,18 @@
         <property name="suffix">
             <value>.jsp</value>
         </property>
-    </bean>
+    </bean> -->
+    
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+    <property name="definitions">
+        <list>
+            <value>/WEB-INF/tiles-defs/default-def.xml</value>
+        </list>
+    </property>
+</bean>
+
+<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+</bean>
  
 </beans>

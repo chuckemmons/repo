@@ -25,7 +25,13 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>${spring.version}</version>
+      <version>${spring.version}</version>      
+      <exclusions>
+          <exclusion>
+              <groupId>commons-logging</groupId>
+              <artifactId>commons-logging</artifactId>
+          </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -65,8 +71,6 @@
       <version>${cglib.version}</version>
       <scope>runtime</scope>
     </dependency>
-
-
     <!-- Servlet Spec -->
     <dependency>
         <groupId>javax.servlet</groupId>
@@ -77,11 +81,42 @@
       <groupId>javax.servlet.jsp</groupId>
       <artifactId>javax.servlet.jsp-api</artifactId>
       <version>${servlet.jsp.version}</version>
+    </dependency>    
+    <!-- Logging (since it's excluded from Spring) -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.5</version>
     </dependency>
+    
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.5</version>
+    </dependency>    
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.12</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>2.5</version>
+    </dependency>    
   </dependencies>
 
   <build>
     <finalName>web-app</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/webapp/resources</directory>
+        <excludes>
+          <exclude>sass/**</exclude>
+        </excludes>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

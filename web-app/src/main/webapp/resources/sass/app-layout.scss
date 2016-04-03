@@ -1,0 +1,33 @@
+/* Where all the css magic happens! */
+
+@import "customVariables";
+@import "../vendor/bootstrap-sass-3.3.6/assets/stylesheets/bootstrap";
+
+body {
+  padding-top: 50px;
+}
+
+header {
+  /* background-color: #142739; */
+  font-size: 48px;
+  text-shadow: 4px 4px 4px #aaa;
+  font-family: 'Bad Script', cursive;
+  /*font-family: 'Poiret One', cursive;
+  font-family: 'Tangerine', serif;
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-family: 'Josefin Slab', serif;
+  font-family: "Dancing Script",cursive; */
+   }
+
+footer {
+  /* The settings below are from bootstrap/html/examples/sticky-footer-navbar.css */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  text-align: right;
+  /* color: #ffffff; */ }
+
+footer p .copyright {
+  padding: 10px; }

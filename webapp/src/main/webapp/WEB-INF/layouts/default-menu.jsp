@@ -15,7 +15,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="<%=request.getContextPath()%>">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="contact">Contact</a></li>
             <li class="dropdown">
@@ -34,27 +34,3 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
-<!-- old way
-
-<div id='menu'>
-  <h2>Home</h2>
-  <nav id="nav">
-      <ul id="navigation">
-          <li><span class="glyphicon-home"></span><a href="#">Home</a></li>
-          <li><span class="glyphicon-info-sign"></span> <a href="#">About</a></li>
-          <li><span class="glyphicon-cog"></span>Admin Tools
-              <ul>      
-               <li><span class="glyphicon-blackboard"></span>Examples
-                        <ul>
-                            <li><span class="glyphicon-film"></span><a href="example/youtube-player">Embedded Youtube Player</a></li>
-                        </ul>                    
-                  </li>                    
-                  <li><a href="#">Service 4</a></li>
-              </ul>
-          </li>
-      <li><a href="#">Help</a></li>
-      </ul>
-      <div class="clearfix"></div>
-  </nav>
-</div>       -->

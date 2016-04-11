@@ -17,13 +17,15 @@
     <log4j.version>2.5</log4j.version>
     <slf4j.version>1.7.20</slf4j.version>
     <cglib.version>2.2.2</cglib.version>
+    <javax.validation.version>1.1.0.Final</javax.validation.version>
+    <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
     <servlet.version>3.0-alpha-1</servlet.version>
     <servlet.jsp.version>2.3.2-b02</servlet.jsp.version>
     <jstl.version>1.2</jstl.version>
   </properties>
   
   <dependencies>
-    <!-- Spring core & mvc -->
+    <!-- Spring framework -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
@@ -34,6 +36,12 @@
               <artifactId>commons-logging</artifactId>
           </exclusion>
       </exclusions>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.version}</version>
     </dependency>
 
     <dependency>
@@ -77,8 +85,20 @@
       <version>${cglib.version}</version>
       <scope>runtime</scope>
     </dependency>
+
+    <!-- jsr303 validation dependencies-->
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>${javax.validation.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${hibernate.validator.version}</version>
+    </dependency>
     
-    <!-- Servlet Spec -->
+    <!-- Servlet Specs -->
     <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>servlet-api</artifactId>
@@ -120,13 +140,20 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>${slf4j.version}</version>
+    </dependency>  
+    
+    <!-- Email -->
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>1.5.5</version>
     </dependency>    
-  </dependencies>
-  
-  
+  </dependencies>  
+
 
   <build>
     <finalName>web-app</finalName>
+    
     <resources>
       <resource>
         <directory>src/main/webapp/resources</directory>
@@ -135,6 +162,7 @@
         </excludes>
       </resource>
     </resources>
+    
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -147,4 +175,5 @@
       </plugin>
     </plugins>
   </build>
+  
 </project>

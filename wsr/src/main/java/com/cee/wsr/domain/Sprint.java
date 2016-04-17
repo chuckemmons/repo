@@ -3,22 +3,17 @@ package com.cee.wsr.domain;
 import java.util.Date;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import com.cee.wsr.properties.ApplicationProperties;
-
-@Component
 public class Sprint {
 	private int number;
 	private Date startDate;
 	private Date endDate;
 
-	@Autowired
-	public Sprint(ApplicationProperties applicationProperties) {
-		this.number = applicationProperties.getSprintNumber();
-		this.startDate = applicationProperties.getSprintStartDate();
-		this.endDate = applicationProperties.getSprintEndDate();
+	public Sprint(int number, Date startDate, Date endDate) {
+		super();
+		this.number = number;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	/**

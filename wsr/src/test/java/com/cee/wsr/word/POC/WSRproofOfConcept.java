@@ -1,61 +1,31 @@
 package com.cee.wsr.word.POC;
 
-import java.io.File;
-import java.math.BigInteger;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-
-import org.docx4j.convert.out.flatOpcXml.FlatOpcXmlCreator;
-import org.docx4j.model.structure.SectionWrapper;
-import org.docx4j.openpackaging.exceptions.InvalidFormatException;
-import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
-import org.docx4j.openpackaging.parts.WordprocessingML.HeaderPart;
-import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
-import org.docx4j.relationships.Relationship;
-import org.docx4j.wml.BooleanDefaultTrue;
-import org.docx4j.wml.Hdr;
-import org.docx4j.wml.HdrFtrRef;
-import org.docx4j.wml.HeaderReference;
-import org.docx4j.wml.HpsMeasure;
-import org.docx4j.wml.ObjectFactory;
-import org.docx4j.wml.P;
-import org.docx4j.wml.PPr;
-import org.docx4j.wml.PPrBase.NumPr;
-import org.docx4j.wml.PPrBase.NumPr.Ilvl;
-import org.docx4j.wml.PPrBase.NumPr.NumId;
-import org.docx4j.wml.PPrBase.Spacing;
-import org.docx4j.wml.R;
-import org.docx4j.wml.RPr;
-import org.docx4j.wml.SectPr;
-import org.docx4j.wml.Text;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.cee.wsr.config.ApplicationConfig;
-import com.cee.wsr.domain.Project;
-import com.cee.wsr.domain.Sprint;
+import com.cee.wsr.document.DocxGenerator;
 import com.cee.wsr.domain.StatusReport;
-import com.cee.wsr.domain.Task;
-import com.cee.wsr.spreadsheet.JiraTasksXlsxParser;
-import com.cee.wsr.utils.DateUtil;
+import com.cee.wsr.service.StatusReportService;
 
-public class WRSproofOfConcept {
-	private static ObjectFactory objectFactory = new ObjectFactory();
-	private static final String WrsPath = System.getProperty("user.dir")
+public class WSRproofOfConcept {
+	//private static ObjectFactory objectFactory = new ObjectFactory();
+	/*private static final String WrsPath = System.getProperty("user.dir")
 			+ "/WRSproofOfConcept.docx";
-	private static final String xlsPath = "C:/Users/chuck/Desktop/JIRA.xlsx";
+	private static final String xlsPath = "C:/Users/chuck/Desktop/JIRA.xlsx";*/
 	
 	public static void main(String[] args) throws Exception {
 		@SuppressWarnings("resource")
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
-		JiraTasksXlsxParser xlsxParser = ctx.getBean(JiraTasksXlsxParser.class);
+		StatusReportService srService = ctx.getBean(StatusReportService.class);
+		DocxGenerator docxGenerator = ctx.getBean(DocxGenerator.class);
 
 		// Sprint will be passed into the production code, lives here for now..
-		StatusReport statusReport = xlsxParser.parseXlsx(xlsPath);
+		StatusReport statusReport = srService.getStatusReport();
+		docxGenerator.generateDocument(statusReport);
 		
-		WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage.createPackage();
+		/*WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage.createPackage();
 		// Delete the Styles part, since it clutters up our output
 		MainDocumentPart mdp = wordMLPackage.getMainDocumentPart();
 		Relationship styleRel = mdp.getStyleDefinitionsPart().getSourceRelationships().get(0);
@@ -69,10 +39,10 @@ public class WRSproofOfConcept {
 		wordMLPackage.save(new File(WrsPath));
 		// Display the result as Flat OPC XML
 		FlatOpcXmlCreator worker = new FlatOpcXmlCreator(wordMLPackage);
-		worker.marshal(System.out);
+		worker.marshal(System.out);*/
 	}
 	
-	public static final void addProjects(WordprocessingMLPackage wordMLPackage, List<Project> projects) {
+/*	public static final void addProjects(WordprocessingMLPackage wordMLPackage, List<Project> projects) {
 		for (Project project : projects) {
 			addProject(wordMLPackage, project);
 		}
@@ -190,7 +160,7 @@ public class WRSproofOfConcept {
 		R valueRun = createStyledRun(value, false, false, fontSize);
 		paragraph.getContent().add(valueRun);
 		return paragraph;
-	}
+	}*/
 	
 	/*public static P createUnnumberedList(String textValue, Boolean bold, String fontSize) {
         P  p = objectFactory.createP();
@@ -223,7 +193,7 @@ public class WRSproofOfConcept {
 		Indent indent = objectFactory.createPPr
 	}*/
 	
-	private static void addUnnumberedListPPr(P p) {
+	/*private static void addUnnumberedListPPr(P p) {
 		PPr ppr = objectFactory.createPPr();
         
         p.setPPr( ppr );
@@ -261,7 +231,7 @@ public class WRSproofOfConcept {
 		return run;
 	}
 	
-	/**
+	*//**
      *  This is where we add the actual styling information. In order to do this
      *  we first create a paragraph. Then we create a text with the content of
      *  the cell as the value. Thirdly, we create a so-called run, which is a
@@ -272,7 +242,7 @@ public class WRSproofOfConcept {
      *  we'll create run properties and add the styling to it. These run
      *  properties are then added to the run. Finally the paragraph is added
      *  to the content of the table cell.
-     */
+     *//*
     private static void addStyling(R run,
                     Boolean bold, Boolean italic, String fontSize) { 
         RPr runProperties = objectFactory.createRPr();
@@ -292,12 +262,12 @@ public class WRSproofOfConcept {
         run.setRPr(runProperties);        
     }
     
-	/**
+	*//**
      *  In this method we're going to add the font size information to the run
      *  properties. First we'll create a half-point measurement. Then we'll
      *  set the fontSize as the value of this measurement. Finally we'll set
      *  the non-complex and complex script font sizes, sz and szCs respectively.
-     */
+     *//*
     private static void setFontSize(RPr runProperties, String fontSize) {
         HpsMeasure size = new HpsMeasure();
         size.setVal(new BigInteger(fontSize).multiply(new BigInteger("2")));
@@ -305,12 +275,12 @@ public class WRSproofOfConcept {
         runProperties.setSzCs(size);
     }
 	
-	/**
+	*//**
      *  In this method we'll add the bold property to the run properties.
      *  BooleanDefaultTrue is the Docx4j object for the b property.
      *  Technically we wouldn't have to set the value to true, as this is
      *  the default.
-     */
+     *//*
     private static void addBoldStyle(RPr runProperties) {
         BooleanDefaultTrue b = new BooleanDefaultTrue();
         b.setVal(true);
@@ -359,5 +329,5 @@ public class WRSproofOfConcept {
     	spacing.setAfterAutospacing(false);
 
     	paragraphProperties.setSpacing(spacing);
-    }     
+    }     */
 }

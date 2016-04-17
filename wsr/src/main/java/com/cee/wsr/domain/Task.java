@@ -1,18 +1,65 @@
 package com.cee.wsr.domain;
 
+import java.util.Set;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Task {
+	private String projectName;
+	private String epic;
 	private String summary;
 	private String status;
-	private String developer;
+	private Set<String> developers;
 
-	public Task(String summary, String status, String developer) {
-		super();
+	public Task(String projectName, String epic, String summary, String status, Set<String> developers) {
+		this.projectName = projectName;
+		this.epic = epic;
 		this.summary = summary;
 		this.status = status;
-		this.developer = developer;
+		this.developers = developers;
+	}	
+	
+
+	/**
+	 * @return the projectName
+	 */
+	public String getProjectName() {
+		return projectName;
 	}
+
+
+	/**
+	 * @param projectName the projectName to set
+	 */
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+
+
+	/**
+	 * @return the epic
+	 */
+	public String getEpic() {
+		return epic;
+	}
+
+
+	/**
+	 * @param epic the epic to set
+	 */
+	public void setEpic(String epic) {
+		this.epic = epic;
+	}
+
+
+	/**
+	 * @param developers the developers to set
+	 */
+	public void setDevelopers(Set<String> developers) {
+		this.developers = developers;
+	}
+
+
 
 	/**
 	 * @return the summary
@@ -45,18 +92,10 @@ public class Task {
 	}
 
 	/**
-	 * @return the developer
+	 * @return the developers
 	 */
-	public String getDeveloper() {
-		return developer;
-	}
-
-	/**
-	 * @param developer
-	 *            the developer to set
-	 */
-	public void setDeveloper(String developer) {
-		this.developer = developer;
+	public Set<String> getDevelopers() {
+		return developers;
 	}
 
 	/*

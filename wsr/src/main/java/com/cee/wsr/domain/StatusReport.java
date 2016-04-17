@@ -5,32 +5,25 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import com.cee.wsr.properties.ApplicationProperties;
-
-@Component
 public class StatusReport {
 	private String classification;
 	
 	private String title;
 	private Sprint sprint;
-	private Preparer preparer;
+	private Author author;
 	private Date weekEndingDate;
 	
 	private List<Project> projectList = new ArrayList<Project>();
 
 	// private List<Appendix> appendixList;
 
-	@Autowired
-	public StatusReport(ApplicationProperties applicationProperties, Sprint sprint,
-			Preparer preparer) {
-		this.title = applicationProperties.getReportTitle();
+	public StatusReport(String title, String classification, Sprint sprint, Author author, Date weekEndingDate) {
+		this.title = title;
 		this.sprint = sprint;
-		this.preparer = preparer;
-		this.classification = applicationProperties.getReportClassification();
-		this.weekEndingDate = applicationProperties.getReportWeekEndingDate();
+		this.author = author;
+		this.classification = classification;
+		this.weekEndingDate = weekEndingDate;
 	}
 
 	public Project getProject(String name) {
@@ -45,6 +38,7 @@ public class StatusReport {
 	
 
 	/**
+	 * TODO: rewrite....
 	 * Adds a task to the given named project. If the project doesn't exist, a
 	 * new project is created, the task is added to it, and it is associated
 	 * with the StatusReport.
@@ -53,22 +47,24 @@ public class StatusReport {
 	 * @param epic
 	 * @param task
 	 */
-	public void addTask(String projectName, String epic, Task task) {
-		if (projectName == null) {
-			throw new IllegalArgumentException("projectName cannot be null.");
-		} else if (epic == null) {
-			throw new IllegalArgumentException("epic cannot be null.");
-		} else if (task == null) {
+	public void addTask(Task task) {
+		if (task == null) {
 			throw new IllegalArgumentException("Task cannot be null.");
 		}
 
-		Project project = getProject(projectName);
+		Project project = getProject(task.getProjectName());
 		if (project == null) {
-			project = new Project(projectName);
-			project.addTask(epic, task);
+			project = new Project(task.getProjectName());
+			project.addTask(task);
 			projectList.add(project);
 		} else {
-			project.addTask(epic, task);
+			project.addTask(task);
+		}
+	}
+	
+	public void addTasks(List<Task> taskList) {
+		for (Task task : taskList) {
+			addTask(task);
 		}
 	}
 
@@ -126,18 +122,18 @@ public class StatusReport {
 	}
 
 	/**
-	 * @return the preparer
+	 * @return the author
 	 */
-	public Preparer getPreparer() {
-		return preparer;
+	public Author getPreparer() {
+		return author;
 	}
 
 	/**
-	 * @param preparer
-	 *            the preparer to set
+	 * @param author
+	 *            the author to set
 	 */
-	public void setPreparer(Preparer preparer) {
-		this.preparer = preparer;
+	public void setPreparer(Author author) {
+		this.author = author;
 	}
 	
 	/**

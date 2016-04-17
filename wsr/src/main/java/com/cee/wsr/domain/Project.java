@@ -38,24 +38,16 @@ public class Project {
 		return epicToTaskListMap.get(epic);
 	}
 
-	public void addTask(String epic, Task task) {
-		if (epicToTaskListMap.containsKey(epic)) {
-			epicToTaskListMap.get(epic).add(task);
+	public void addTask(Task task) {
+		if (epicToTaskListMap.containsKey(task.getEpic())) {
+			epicToTaskListMap.get(task.getEpic()).add(task);
 		} else {
 			List<Task> tasks = new ArrayList<Task>();
 			tasks.add(task);
-			epicToTaskListMap.put(epic, tasks);
+			epicToTaskListMap.put(task.getEpic(), tasks);
 		}
 	}
-
-	public void addTasks(String epic, List<Task> tasksList) {
-		if (epicToTaskListMap.containsKey(epic)) {
-			epicToTaskListMap.get(epic).addAll(tasksList);
-		} else {
-			epicToTaskListMap.put(epic, tasksList);
-		}
-	}
-
+	
 	/**
 	 * @return the name
 	 */

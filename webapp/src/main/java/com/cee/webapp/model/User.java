@@ -1,19 +1,40 @@
 package com.cee.webapp.model;
 
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import org.springframework.context.annotation.Scope;
 
+@Entity
 @Scope(value = "session")
 public class User {
+	@Id
+	@GeneratedValue
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String phone;
-	private String password;
+	//private String password;
 
-	private Set<Role> roles;
+	//private Set<Role> roles;
 
+
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}	
+	
 	/**
 	 * @return the firstName
 	 */
@@ -77,31 +98,33 @@ public class User {
 	/**
 	 * @return the password
 	 */
-	public String getPassword() {
+	/*public String getPassword() {
 		return password;
 	}
 
-	/**
+	*//**
 	 * @param password
 	 *            the password to set
-	 */
+	 *//*
 	public void setPassword(String password) {
 		this.password = password;
-	}
+	}*/
+	
+	/*
 
-	/**
+	*//**
 	 * @return the roles
-	 */
+	 *//*
 	public Set<Role> getRoles() {
 		return roles;
 	}
 
-	/**
+	*//**
 	 * @param roles
 	 *            the roles to set
-	 */
+	 *//*
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
-	}
+	}*/
 
 }

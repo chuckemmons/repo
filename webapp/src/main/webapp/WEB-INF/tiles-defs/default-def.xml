@@ -3,23 +3,31 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-  
-  <definition name="examples/*" template="/WEB-INF/layouts/examples-layout.jsp">
-    <put-attribute name="example" value="/WEB-INF/views/examples/{1}.jsp" />
+  <!-- for three level mapping, e.g. "admin/user/list" -->
+  <definition name="*/*/*" template="/WEB-INF/layouts/default-layout.jsp">
+    <put-attribute name="header" value="/WEB-INF/layouts/default-header.jsp" />
+    <put-attribute name="menu" value="/WEB-INF/layouts/default-menu.jsp" />
+    <put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/layouts/default-footer.jsp" />
   </definition>
-  
+  <!-- for two level mapping (most cases), e.g. "contact/form" -->
   <definition name="*/*" template="/WEB-INF/layouts/default-layout.jsp">
     <put-attribute name="header" value="/WEB-INF/layouts/default-header.jsp" />
     <put-attribute name="menu" value="/WEB-INF/layouts/default-menu.jsp" />
     <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
     <put-attribute name="footer" value="/WEB-INF/layouts/default-footer.jsp" />
   </definition>
-
+  <!-- for one level mapping, this is for the home page and "root level" pages. -->
   <definition name="*" template="/WEB-INF/layouts/default-layout.jsp">
     <put-attribute name="header" value="/WEB-INF/layouts/default-header.jsp" />
     <put-attribute name="menu" value="/WEB-INF/layouts/default-menu.jsp" />
     <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
     <put-attribute name="footer" value="/WEB-INF/layouts/default-footer.jsp" />
+  </definition>
+  
+  <!-- using a blank template for the examples -->
+  <definition name="examples/*" template="/WEB-INF/layouts/examples-layout.jsp">
+    <put-attribute name="example" value="/WEB-INF/views/examples/{1}.jsp" />
   </definition>
   
 </tiles-definitions>

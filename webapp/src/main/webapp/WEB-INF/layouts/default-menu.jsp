@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%> 
+   
 <!-- the default bootstrap way... -->
  <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -17,7 +19,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="<%=request.getContextPath()%>">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="contact">Contact</a></li>
+            <li><a href='<spring:url value="/contact" htmlEscape="true"/>'>Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Useful Links<span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -26,8 +28,14 @@
                 <li><a href="https://www.jstree.com/" target="_blank">jQuery Tree Plugin</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">Examples</li>
-                <li><a href="examples/bootstrap" target="_blank">Bootstrap theme</a></li>
-                <li><a href="examples/youtube-player" target="_blank">Youtube player</a></li>
+                <li><a href='<spring:url value="/examples/bootstrap" htmlEscape="true"/>' target="_blank">Bootstrap theme</a></li>
+                <li><a href='<spring:url value="/examples/youtube-player" htmlEscape="true"/>' target="_blank">Youtube player</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href='<spring:url value="/admin/user/list" htmlEscape="true"/>'>Users</a></li>
               </ul>
             </li>
           </ul>

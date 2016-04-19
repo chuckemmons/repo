@@ -16,11 +16,15 @@ public class UserService {
 	public UserService() {}
 	
 	public UserService(UserRepository repository) {
-		this.userRepository = userRepository;
+		this.userRepository = repository;
 	}
 	
 	public Iterable<User> findAll() {
 		return userRepository.findAll();
+	}
+	
+	public void save(User user) {
+		userRepository.save(user);
 	}
 	
 }

@@ -27,4 +27,26 @@ public class UserService {
 		userRepository.save(user);
 	}
 	
+	/**
+	 * Authenticates a user.
+	 * <p>
+	 * If authenticated, initializes
+	 * 
+	 * @param user the user to authenticate
+	 * @return  if the user is authenticated or not
+	 */
+	public boolean authenticate(User user) {
+		User persistedUser = userRepository.findByEmail(user.getEmail());
+		
+		if (persistedUser == null) {
+			return false;
+		}
+		
+		if(user.getPassword().equals(persistedUser.getPassword())) {
+			user.setFirstName(persistedUser.getFirstName());
+			return true;
+		}
+		return false;
+	}
+	
 }

@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <div class="clearfix">
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="well well-sm">
-        <form:form class="form-horizontal" method="post" action='<spring:url value="/admin/user/submit" htmlEscape="true"/>' modelAttribute="user">
+        <form:form class="form-horizontal" method="post" action="${contextPath}/admin/user/submit" modelAttribute="user">
           <fieldset>
-            <legend class="text-center header">User</legend>
-            
+            <legend class="text-center header">User</legend>            
             
             <div class="form-group">
               <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
@@ -18,6 +19,16 @@
                 <form:input type="text" path="email" placeholder="Email Address" class="form-control" />
                 <div class="has-error">
                   <form:errors path="email" class="input-help"/>
+                </div>
+              </div>
+            </div>            
+            
+            <div class="form-group">
+              <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+              <div class="col-md-8">
+                <form:input type="password" path="password" placeholder="Password" class="form-control" />
+                <div class="has-error">
+                  <form:errors path="password" class="input-help"/>
                 </div>
               </div>
             </div>

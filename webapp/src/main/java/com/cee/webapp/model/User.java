@@ -1,22 +1,41 @@
 package com.cee.webapp.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.context.annotation.Scope;
 
 @Entity
 @Scope(value = "session")
-public class User {
+public class User implements Serializable {
+	private static final long serialVersionUID = 4988491698022262976L;
+
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	@Size(min = 2, max = 30, message = "First name must be between 2 and 30 characters.")
 	private String firstName;
+	
+	@Size(min = 0, max = 30, message = "Last name must be less than 30 characters.")
 	private String lastName;
+	
+	@NotBlank(message = "Email address is required.")
+	@Email(message = "Email address must be a valid email address.")
+	@Size(min = 0, max = 30, message = "Email address must be less than 30 characters.")
 	private String email;
+	
+	@Size(min = 0, max = 10, message = "Phone number must be less than 10 numbers.")
 	private String phone;
-	//private String password;
+	
+	@Size(min = 8, max = 20, message = "Password must be between 8 and 16 characters.")
+	private String password;
 
 	//private Set<Role> roles;
 
@@ -98,17 +117,17 @@ public class User {
 	/**
 	 * @return the password
 	 */
-	/*public String getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	*//**
+	/**
 	 * @param password
 	 *            the password to set
-	 *//*
+	 */
 	public void setPassword(String password) {
 		this.password = password;
-	}*/
+	}
 	
 	/*
 

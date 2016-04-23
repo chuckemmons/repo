@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -35,6 +36,9 @@
   <body role="document">
     <%-- <tiles:insertAttribute name="header" /> --%>
     <tiles:insertAttribute name="menu" />
+    <c:if test="${not empty error}">
+       Error: ${error}
+    </c:if>
     <tiles:insertAttribute name="body" />
     <tiles:insertAttribute name="footer" />
         <!-- Placed at the end of the document so the pages load faster -->

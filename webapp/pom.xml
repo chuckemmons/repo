@@ -22,6 +22,7 @@
     <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
     <servlet.version>3.0-alpha-1</servlet.version>
     <servlet.jsp.version>2.3.2-b02</servlet.jsp.version>
+    <tomcat.servlet.api.version>8.0.33</tomcat.servlet.api.version>
     <jstl.version>1.2</jstl.version>
     <mysql.connector.version>5.1.37</mysql.connector.version>
   </properties>
@@ -105,6 +106,13 @@
       <artifactId>tiles-extras</artifactId>
       <version>${tiles.version}</version>
     </dependency>
+    
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-servlet-api</artifactId>
+      <version>${tomcat.servlet.api.version}</version>
+    </dependency>
+    
     
     <dependency>
         <groupId>javax.servlet</groupId>

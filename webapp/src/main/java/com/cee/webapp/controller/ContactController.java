@@ -33,17 +33,14 @@ public class ContactController {
 	public ModelAndView submit(
 			@Validated @ModelAttribute("contact") Contact contact,
 			BindingResult result, ModelMap model) {
-		// validate...
+		
 		if (result.hasErrors()) {
 			return new ModelAndView("contact/form", "contact", contact);
 		}
 
 		if (contact.notSpam()) {
-			// send...
 			emailService.sendMailFrom(contact);
-			// return
 			LOG.info("contact message sent..");
-
 		}
 
 		return new ModelAndView("contact/sent", "contact", contact);

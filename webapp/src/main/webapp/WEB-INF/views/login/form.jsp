@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="well well-sm">
-        <form:form class="form-horizontal" method="post" action="contact" modelAttribute="user">
+        <form:form class="form-horizontal" method="post" action="login" modelAttribute="user">
           <fieldset>
             <legend class="text-center header">Sign in</legend>
             

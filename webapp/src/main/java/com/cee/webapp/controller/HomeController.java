@@ -18,7 +18,6 @@ public class HomeController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String home(ModelAndView model) throws IOException {
-		// model.addAttribute("firstPageMessage", "This is the first page");
 		return "home";
 	}
 }

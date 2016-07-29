@@ -6,8 +6,6 @@ import org.apache.poi.ss.usermodel.DateUtil;
 
 /**
  * Utility for processing {@code org.apache.poi} xlsx objects.
- * 
- * @author chuck
  *
  */
 public final class PoiXlsxUtil {

@@ -16,6 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Component;
 
 import com.cee.wsr.domain.Project;
+import com.cee.wsr.domain.Task;
 import com.cee.wsr.utils.DevNameUtil;
 @Component
 public class JiraTasksXlsxParser {
@@ -26,8 +27,8 @@ public class JiraTasksXlsxParser {
 	private static final int STATUS_COL = 4;
 	private static final int SUMMARY_COL = 2;
 
-	public List<RowAttributes> parseXlsx(String xlsPath) {
-		List<RowAttributes> rowAttributes = new ArrayList<RowAttributes>();
+	public List<Task> parseXlsx(String xlsPath) {
+		List<Task> tasks = new ArrayList<Task>();
 		try {
 			FileInputStream file = new FileInputStream(new File(xlsPath));
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
@@ -35,7 +36,7 @@ public class JiraTasksXlsxParser {
 			XSSFSheet sheet = workbook.getSheetAt(0);
 			for (Row row : sheet) {				
 				if (row.getRowNum() >= START_ROW) {
-					rowAttributes.add(process(row));
+					tasks.add(process(row));
 				}
 			}
 			workbook.close();
@@ -45,10 +46,10 @@ public class JiraTasksXlsxParser {
 			ioe.printStackTrace();
 		}
 
-		return rowAttributes;
+		return tasks;
 	}
 
-	private RowAttributes process(Row row) {
+	private Task process(Row row) {
 		String projectName = PoiXlsxUtil.getStrippedCellValue(row.getCell(PROJECT_COL));
 		String projectAbbr = Project.getProjectAbbr(projectName);
 		
@@ -68,6 +69,6 @@ public class JiraTasksXlsxParser {
 		for (int i = 0; i < developers.length; i++) {
 			devSet.add(DevNameUtil.getFullName(developers[i]));
 		}
-		return new RowAttributes(projectName, epic, summary, status, devSet);
+		return new Task(projectName, epic, summary, status, devSet);
 	}
 }

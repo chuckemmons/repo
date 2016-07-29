@@ -11,7 +11,8 @@ public class Task {
 	private String status;
 	private Set<String> developers;
 
-	public Task(String projectName, String epic, String summary, String status, Set<String> developers) {
+	public Task(String projectName, String epic, 
+			String summary, String status, Set<String> developers) {
 		this.projectName = projectName;
 		this.epic = epic;
 		this.summary = summary;

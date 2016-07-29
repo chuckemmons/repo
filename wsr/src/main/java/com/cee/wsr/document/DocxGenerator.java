@@ -56,7 +56,7 @@ public class DocxGenerator {
 		}
 	}*/
 	
-private static ObjectFactory objectFactory = new ObjectFactory();
+	private static ObjectFactory objectFactory = new ObjectFactory();
 	
 	public void generateDocument(StatusReport statusReport) {
 		try {

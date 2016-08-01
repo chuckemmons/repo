@@ -45,26 +45,26 @@ public class StatusReport {
 	 * 
 	 * @param projectName
 	 * @param epic
-	 * @param task
+	 * @param jiraIssue
 	 */
-	public void addTask(Task task) {
-		if (task == null) {
-			throw new IllegalArgumentException("Task cannot be null.");
+	public void addJiraIssue(JiraIssue jiraIssue) {
+		if (jiraIssue == null) {
+			throw new IllegalArgumentException("JiraIssue cannot be null.");
 		}
 
-		Project project = getProject(task.getProjectName());
+		Project project = getProject(jiraIssue.getProjectName());
 		if (project == null) {
-			project = new Project(task.getProjectName());
-			project.addTask(task);
+			project = new Project(jiraIssue.getProjectName());
+			project.addJiraIssue(jiraIssue);
 			projectList.add(project);
 		} else {
-			project.addTask(task);
+			project.addJiraIssue(jiraIssue);
 		}
 	}
 	
-	public void addTasks(List<Task> taskList) {
-		for (Task task : taskList) {
-			addTask(task);
+	public void addJiraIssues(List<JiraIssue> jiraIssues) {
+		for (JiraIssue jiraIssue : jiraIssues) {
+			addJiraIssue(jiraIssue);
 		}
 	}
 

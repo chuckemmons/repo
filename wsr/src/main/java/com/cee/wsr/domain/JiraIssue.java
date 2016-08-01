@@ -4,14 +4,20 @@ import java.util.Set;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class Task {
+public class JiraIssue {
 	private String projectName;
-	private String epic;
+	private String key;
 	private String summary;
+	private String type;
 	private String status;
+	private String epic;
+	private float estimate;
+	private float timeSpent;
+	private String[] subTasks;
+	private String[] linkedIssueKeys;
 	private Set<String> developers;
 
-	public Task(String projectName, String epic, 
+	public JiraIssue(String projectName, String epic, 
 			String summary, String status, Set<String> developers) {
 		this.projectName = projectName;
 		this.epic = epic;
@@ -20,6 +26,11 @@ public class Task {
 		this.developers = developers;
 	}	
 	
+
+	public JiraIssue() {
+		// TODO Auto-generated constructor stub
+	}
+
 
 	/**
 	 * @return the projectName
@@ -34,6 +45,22 @@ public class Task {
 	 */
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+
+
+	/**
+	 * @return the subTasks
+	 */
+	public String[] getSubTasks() {
+		return subTasks;
+	}
+
+
+	/**
+	 * @param subTasks the subTasks to set
+	 */
+	public void setSubTasks(String[] subTasks) {
+		this.subTasks = subTasks;
 	}
 
 
@@ -98,6 +125,88 @@ public class Task {
 	public Set<String> getDevelopers() {
 		return developers;
 	}
+	
+	
+
+	/**
+	 * @return the key
+	 */
+	public String getKey() {
+		return key;
+	}
+
+
+	/**
+	 * @param key the key to set
+	 */
+	public void setKey(String key) {
+		this.key = key;
+	}
+
+
+	/**
+	 * @return the type
+	 */
+	public String getType() {
+		return type;
+	}
+
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+
+
+	/**
+	 * @return the estimate
+	 */
+	public float getEstimate() {
+		return estimate;
+	}
+
+
+	/**
+	 * @param estimate the estimate to set
+	 */
+	public void setEstimate(float estimate) {
+		this.estimate = estimate;
+	}
+
+
+	/**
+	 * @return the timeSpent
+	 */
+	public float getTimeSpent() {
+		return timeSpent;
+	}
+
+
+	/**
+	 * @param timeSpent the timeSpent to set
+	 */
+	public void setTimeSpent(float timeSpent) {
+		this.timeSpent = timeSpent;
+	}
+
+
+	/**
+	 * @return the linkedIssueKeys
+	 */
+	public String[] getLinkedIssueKeys() {
+		return linkedIssueKeys;
+	}
+
+
+	/**
+	 * @param linkedIssueKeys the linkedIssueKeys to set
+	 */
+	public void setLinkedIssueKeys(String[] linkedIssueKeys) {
+		this.linkedIssueKeys = linkedIssueKeys;
+	}
+
 
 	/*
 	 * (non-Javadoc)

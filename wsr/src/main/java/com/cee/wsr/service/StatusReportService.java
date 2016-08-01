@@ -8,11 +8,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cee.wsr.dao.JiraTaskDao;
+import com.cee.wsr.dao.JiraIssueDao;
 import com.cee.wsr.domain.Author;
+import com.cee.wsr.domain.JiraIssue;
+import com.cee.wsr.domain.JiraIssues;
 import com.cee.wsr.domain.Sprint;
 import com.cee.wsr.domain.StatusReport;
-import com.cee.wsr.domain.Task;
 import com.cee.wsr.properties.StatusReportProperties;
 
 /**
@@ -23,7 +24,7 @@ import com.cee.wsr.properties.StatusReportProperties;
 public class StatusReportService {
 
 	@Autowired
-	JiraTaskDao taskDao;
+	JiraIssueDao jiraIssueDao;
 	@Autowired 
 	StatusReportProperties srProps;
 	
@@ -35,9 +36,25 @@ public class StatusReportService {
 				createAuthor(),
 				srProps.getReportWeekEndingDate());	
 		
-		List<Task> tasks = taskDao.getAllTasks();
-		for (Task task : tasks) {
-			statusReport.addTask(task);
+		List<JiraIssue> jiraIssues = jiraIssueDao.getAllIssues();
+		for (JiraIssue jiraIssue : jiraIssues) {
+			statusReport.addJiraIssue(jiraIssue);
+		}
+		return statusReport;
+	}
+	
+	public StatusReport getV2StatusReport() {
+		StatusReport statusReport = new StatusReport(
+				srProps.getReportTitle(), 
+				srProps.getReportClassification(), 
+				createSprint(), 
+				createAuthor(),
+				srProps.getReportWeekEndingDate());	
+		
+		JiraIssues jiraIssues = jiraIssueDao.getAllIssues();
+		
+		for (JiraIssue jiraIssue : jiraIssues.getStories()) {
+			statusReport.addJiraIssue(jiraIssue);
 		}
 		return statusReport;
 	}

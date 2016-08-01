@@ -63,18 +63,18 @@ public class WSRproofOfConcept {
 		}
 	}
 	
-	public static final void addEpic(String epic, List<Task> tasks, MainDocumentPart mdp, String epicFontSize) {
+	public static final void addEpic(String epic, List<JiraIssue> tasks, MainDocumentPart mdp, String epicFontSize) {
 		P emptyP = createP("", false, false, epicFontSize);
 		mdp.addObject(emptyP);
 		P epicP = createP(epic, false, true, epicFontSize);
 		mdp.addObject(epicP);
 		
-		for (Task task : tasks) {
+		for (JiraIssue task : tasks) {
 			addTask(task, mdp, epicFontSize);
 		}
 	}
 	
-	public static final void addTask(Task task, MainDocumentPart mdp, String taskFontSize) {
+	public static final void addTask(JiraIssue task, MainDocumentPart mdp, String taskFontSize) {
 		P summaryP = createP("     " + task.getSummary(), false, false, taskFontSize);
 		mdp.addObject(summaryP);
 		P statusP = createP("          Status: " + task.getStatus(), false, false, taskFontSize);

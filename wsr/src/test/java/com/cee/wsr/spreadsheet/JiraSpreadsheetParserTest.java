@@ -6,8 +6,8 @@ public class JiraSpreadsheetParserTest extends TestCase {
 	private static final String xlsPath = "C:/Users/chuck/Desktop/JIRA.xlsx";
 
 	/*
-	 * public void testParseXlsx() { List<Task> taskList =
-	 * JiraTasksXlsxParser.parseXlsx(xlsPath);
+	 * public void testParseXlsx() { List<JiraIssue> taskList =
+	 * JiraIssuesXlsxParser.parseXlsx(xlsPath);
 	 * 
 	 * assertTrue(taskList != null && taskList.size() > 0);
 	 * System.out.println(taskList.toString()); }

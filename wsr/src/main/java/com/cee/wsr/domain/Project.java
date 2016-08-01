@@ -1,6 +1,6 @@
 package com.cee.wsr.domain;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +11,10 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Project {
 	private String name;
-	private Map<String, List<Task>> epicToTaskListMap = new HashMap<String, List<Task>>();
+	private Map<String, Epic> epicMap = new HashMap<String, Epic>();
+	
+	@Deprecated
+	private Map<String, List<JiraIssue>> epicToTaskListMap = new HashMap<String, List<JiraIssue>>(); 
 	
 	public Project(String name) {
 		this.name = name;
@@ -29,23 +32,31 @@ public class Project {
 		}
 		return abbr;
 	}
+	
+	public Collection<Epic> getEpics() {
+		return epicMap.values();
+	}
 
-	public Set<String> getEpics() {
+	@Deprecated
+	public Set<String> getEpicsSet() {
 		return epicToTaskListMap.keySet();
 	}
 
-	public List<Task> getTasksByEpic(String epic) {
+	@Deprecated
+	public List<JiraIssue> getTasksByEpic(String epic) {
 		return epicToTaskListMap.get(epic);
 	}
 
-	public void addTask(Task task) {
-		if (epicToTaskListMap.containsKey(task.getEpic())) {
-			epicToTaskListMap.get(task.getEpic()).add(task);
+	public void addJiraIssue(JiraIssue jiraIssue) {
+		Epic epic;
+		String epicKey = jiraIssue.getEpic();
+		if (epicMap.containsKey(epicKey)) {
+			epic = epicMap.get(epicKey);
 		} else {
-			List<Task> tasks = new ArrayList<Task>();
-			tasks.add(task);
-			epicToTaskListMap.put(task.getEpic(), tasks);
+			epic = new Epic(epicKey);
+			epicMap.put(epicKey, epic);
 		}
+		epic.addJiraIssue(jiraIssue);
 	}
 	
 	/**

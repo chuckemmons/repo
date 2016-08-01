@@ -32,7 +32,7 @@ import org.springframework.util.CollectionUtils;
 import com.cee.wsr.domain.Project;
 import com.cee.wsr.domain.Sprint;
 import com.cee.wsr.domain.StatusReport;
-import com.cee.wsr.domain.Task;
+import com.cee.wsr.domain.JiraIssue;
 import com.cee.wsr.utils.DateUtil;
 
 @Component
@@ -170,31 +170,31 @@ public class DocxGenerator {
 		P projectP = createP(project.getName(), true, false, projectFontSize);
 		mdp.addObject(projectP);
 		
-		Set<String> epics = project.getEpics();		
+		Set<String> epics = project.getEpicsSet();		
 		for (String epic : epics) {
 			addEpic(epic, project.getTasksByEpic(epic), mdp, projectFontSize);
 		}
 	}
 	
 	
-	public static final void addEpic(String epic, List<Task> tasks, MainDocumentPart mdp, String epicFontSize) {
+	public static final void addEpic(String epic, List<JiraIssue> jiraIssues, MainDocumentPart mdp, String epicFontSize) {
 		P emptyP = createP("", false, false, epicFontSize);
 		mdp.addObject(emptyP);
 		P epicP = createP(epic, false, true, epicFontSize);
 		mdp.addObject(epicP);
 		
-		for (Task task : tasks) {
-			addTask(task, mdp, epicFontSize);
+		for (JiraIssue jiraIssue : jiraIssues) {
+			addTask(jiraIssue, mdp, epicFontSize);
 		}
 	}
 	
 	
-	public static final void addTask(Task task, MainDocumentPart mdp, String taskFontSize) {
-		P summaryP = createP("     " + task.getSummary(), false, false, taskFontSize);
+	public static final void addTask(JiraIssue jiraIssue, MainDocumentPart mdp, String taskFontSize) {
+		P summaryP = createP("     " + jiraIssue.getSummary(), false, false, taskFontSize);
 		mdp.addObject(summaryP);
-		P statusP = createP("          Status: " + task.getStatus(), false, false, taskFontSize);
+		P statusP = createP("          Status: " + jiraIssue.getStatus(), false, false, taskFontSize);
 		mdp.addObject(statusP);
-		addDevelopers(task.getDevelopers(), mdp, taskFontSize);
+		addDevelopers(jiraIssue.getDevelopers(), mdp, taskFontSize);
 		
 	}
 	

@@ -11,11 +11,11 @@
 
 
   <properties>
-    <java.version>1.7</java.version>
+    <java.version>1.8</java.version>
     <spring.version>4.2.5.RELEASE</spring.version>
     <spring.security.version>4.0.4.RELEASE</spring.security.version>
     <tiles.version>3.0.5</tiles.version>
-    <log4j.version>2.5</log4j.version>
+    <log4j.version>2.25.5</log4j.version>
     <slf4j.version>1.7.20</slf4j.version>
     <cglib.version>2.2.2</cglib.version>
     <javax.validation.version>1.1.0.Final</javax.validation.version>
